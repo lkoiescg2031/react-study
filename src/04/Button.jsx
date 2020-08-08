@@ -1,11 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles, { css } from './withStyles';
 
-class Text extends PureComponent {
+class Button extends Component {
   render() {
     const {
       children,
+      disabled,
+
       styles,
 
       large,
@@ -15,9 +17,11 @@ class Text extends PureComponent {
 
       primary,
       secondary,
+
+      onPress,
     } = this.props;
     return (
-      <span
+      <button
         {...css(
           styles.default,
           xsmall && styles.xsmall,
@@ -27,29 +31,48 @@ class Text extends PureComponent {
           secondary && styles.secondary,
           primary && styles.primary,
         )}
+        onClick={onPress}
       >
         {children}
-      </span>
+      </button>
     );
   }
 }
 
-Text.propTypes = {
-  children: PropTypes.node.isRequired,
-
+Button.propTypes = {
+  children: PropTypes.node,
   xsmall: PropTypes.bool,
   small: PropTypes.bool,
   large: PropTypes.bool,
   xlarge: PropTypes.bool,
-
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
+  onPress: PropTypes.func,
 };
 
-export default withStyles(({ color, size }) => ({
+Button.defaultProps = {
+  onPress: () => {},
+  xsmall: false,
+  small: false,
+  large: false,
+  xlarge: false,
+  primary: false,
+  secondary: false,
+};
+
+export default withStyles(({ color, size, unit, responsive }) => ({
   default: {
+    border: 1,
+    borderStyle: 'solid',
+    borderColor: color.default,
+    borderRadius: 2,
     color: color.default,
     fontSize: size.md,
+    padding: unit * 2,
+    cursor: 'pointer',
+    [responsive.small]: {
+      width: '100%',
+    },
   },
   xlarge: {
     fontSize: size.xg,
@@ -59,14 +82,19 @@ export default withStyles(({ color, size }) => ({
   },
   small: {
     fontSize: size.sm,
+    padding: unit,
   },
   xsmall: {
     fontSize: size.xs,
+    padding: unit,
   },
   primary: {
-    color: color.primary,
+    borderColor: color.primary,
+    color: color.white,
+    backgroundColor: color.primary,
   },
   secondary: {
+    borderColor: color.secondary,
     color: color.secondary,
   },
-}))(Text);
+}))(Button);

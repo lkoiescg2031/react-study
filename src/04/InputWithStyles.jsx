@@ -30,7 +30,7 @@ class Input extends PureComponent {
   render() {
     const { errorMessage, label, name, value, type, onFocus } = this.props;
     return (
-      <div className="input-field inline">
+      <div className="input-field">
         <input
           id={`input_${name}`}
           className={`validate ${errorMessage && 'invalid'}`}
@@ -39,7 +39,7 @@ class Input extends PureComponent {
           onChange={this.handleChange}
           value={value}
         />
-        <label className="active" for={`input_${name}`}>
+        <label className="active" htmlFor={`input_${name}`}>
           {label}
         </label>
         {errorMessage && (
