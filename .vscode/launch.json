@@ -7,11 +7,11 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Debug Program",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}\\Promise.js"
+      "program": "${workspaceFolder}\\src\\05\\05-1-currying.js"
     }
   ]
 }
