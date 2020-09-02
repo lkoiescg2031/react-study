@@ -6,8 +6,6 @@ class Button extends Component {
   render() {
     const {
       children,
-      disabled,
-
       styles,
 
       large,

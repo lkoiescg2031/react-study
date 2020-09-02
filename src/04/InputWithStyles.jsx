@@ -28,7 +28,7 @@ class Input extends PureComponent {
   }
 
   render() {
-    const { errorMessage, label, name, value, type, onFocus } = this.props;
+    const { errorMessage, label, name, value, type } = this.props;
     return (
       <div className="input-field">
         <input
