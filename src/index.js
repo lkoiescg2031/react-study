@@ -2,12 +2,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // 초기 화면 구성 사용자 코드
-import './index.css';
-import App from './App';
+// import './index.css';
+// import App from './App';
+import './doit-ui/app.css';
+import CoinApp from './08/CoinApp';
+
 import * as serviceWorker from './serviceWorker';
 // 리액트 엔진이 화면을 출력하는 코드
 // id가 root인 엘리먼트에 컴포넌트를 출력
-ReactDOM.render( < App /> , document.getElementById('root'));
+ReactDOM.render(<CoinApp />, document.getElementById('root'));
 
 // var imgEl = document.createElement('img');
 // imgEl.setAttribute('src', 'https://wwww.easyspub.co.kr/images/logo_footer.png');

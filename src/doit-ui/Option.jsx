@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class Option extends PureComponent {
   static propTypes = {
     disabled: PropTypes.bool,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     label: PropTypes.string,
   };
 

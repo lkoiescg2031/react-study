@@ -1,4 +1,4 @@
-import React, { PureComponent, Children } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, css, withStylesPropTypes } from './withStyles';
 import Spacing, { propTypes as spacingPropTypes } from './Spacing';
@@ -11,10 +11,10 @@ class Card extends PureComponent {
   };
 
   render() {
-    const { child, styles, ...spacingProps } = this.props;
+    const { children, styles, ...spacingProps } = this.props;
     return (
       <div {...css(styles.wrapper)}>
-        <Spacing {...spacingProps}>{Children}</Spacing>
+        <Spacing {...spacingProps}>{children}</Spacing>
       </div>
     );
   }

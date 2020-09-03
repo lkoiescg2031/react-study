@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Consumer } from './Modal/context';
 
-const { Provider, consumer } = React.createContext({});
+const { Provider, Consumer } = React.createContext({});
 
 export default class FormProvider extends PureComponent {
   static propTypes = {
