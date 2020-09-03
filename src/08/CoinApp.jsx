@@ -5,15 +5,19 @@ import AppLayout from './components/AppLayout';
 import MainPage from './components/main/MainPage';
 import configureStore from './store/configureStore';
 
+import ModalProvider from './ModalProvider';
+
 export default class CoinApp extends PureComponent {
   store = configureStore();
 
   render() {
     return (
       <Provider store={this.store}>
-        <AppLayout>
-          <MainPage />
-        </AppLayout>
+        <ModalProvider>
+          <AppLayout>
+            <MainPage />
+          </AppLayout>
+        </ModalProvider>
       </Provider>
     );
   }
