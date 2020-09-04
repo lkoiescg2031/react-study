@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Api from '../../Api';
+//import Api from '../../Api';
 
 import Heading from '../../../doit-ui/Heading';
 import Card from '../../../doit-ui/Card';
@@ -10,17 +10,19 @@ import TransactionTable from './TransactionTable';
 export default class TransactionList extends PureComponent {
   static defaultProps = {
     transactions: [],
-    setTransactionList: () => {},
+    //setTransactionList: () => {},
+    requestTransactionList: () => {},
   };
 
   componentDidMount() {
-    Api.get('/transactions').then(({ data }) =>
-      this.props.setTransactionList(data),
-    );
+    // Api.get('/transactions').then(({ data }) =>
+    //   this.props.setTransactionList(data),
+    // );
+    this.props.requestTransactionList();
   }
 
   render() {
-    const { transactions } = this.props;
+    const { transactions, loading } = this.props;
     return (
       <div>
         <Heading level={3}>거래현황</Heading>
@@ -28,7 +30,10 @@ export default class TransactionList extends PureComponent {
           <TransactionSearchFilterContrainer />
         </Card>
         <Card>
-          <TransactionTable transactions={transactions} />
+          <TransactionTable
+            transactions={transactions}
+            isLoading={loading}
+          />
         </Card>
       </div>
     );

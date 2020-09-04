@@ -9,11 +9,12 @@ import Form from '../../../doit-ui/Form';
 
 import Select, { Option } from '../../../doit-ui/Select';
 
-import Api from '../../Api';
+// import Api from '../../Api';
 
 export default class TransactionSearchFilter extends PureComponent {
   static propTypes = {
-    setTransactionList: PropTypes.func,
+    //setTransactionList: PropTypes.func,
+    requestTransactionList: PropTypes.func,
   };
 
   constructor(props) {
@@ -21,10 +22,15 @@ export default class TransactionSearchFilter extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(params) {
-    const { setTransactionList } = this.props;
-    Api.get('/transactions', { params }).then(({ data }) =>
-      setTransactionList(data),
-    );
+    // const { setTransactionList } = this.props;
+    // Api.get('/transactions', { params }).then(({ data }) =>
+    //   setTransactionList(data),
+    // );
+    const { requestTransactionList } = this.props;
+    const cleanedParams = Object.entries(params)
+      .filter(([key, value]) => value !== '')
+      .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+    requestTransactionList(cleanedParams);
   }
 
   render() {

@@ -1,12 +1,34 @@
-import { SET_TRANSACTION_LIST } from '../actions/transactionActions';
+import {
+  SET_TRANSACTION_LIST,
+  LOADING_TRANSACTION_LIST,
+  SET_ERROR,
+} from '../actions/transactionActions';
 
 const initialState = {
   ids: [],
   entities: {},
+  loading: false,
+  hasError: false,
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    case SET_ERROR: {
+      const { errorMessage } = payload;
+      return {
+        ...state,
+        loading: false,
+        hasError: true,
+        errorMessage,
+      };
+    }
+    case LOADING_TRANSACTION_LIST: {
+      return {
+        ...state,
+        loading: true,
+        hasError: false,
+      };
+    }
     case SET_TRANSACTION_LIST: {
       const ids = payload.map((entity) => entity['id']);
       const entities = payload.reduce(
@@ -16,7 +38,7 @@ export default (state = initialState, { type, payload }) => {
         }),
         {},
       );
-      return { ...state, ids, entities };
+      return { ...state, ids, entities, loading: false, hasError: false };
     }
     default:
       return state;

@@ -9,7 +9,6 @@ import InlineList from '../../../doit-ui/InlineList';
 import Form from '../../../doit-ui/Form';
 
 import { Consumer as Modal } from '../../../doit-ui/Modal/context';
-import Api from '../../Api';
 
 export default class TradeCoinPage01 extends PureComponent {
   static propTypes = {
@@ -23,9 +22,9 @@ export default class TradeCoinPage01 extends PureComponent {
   }
 
   handleSubmit(values, closeModal) {
-    const { name, code } = this.props;
+    const { name, code, createTransaction } = this.props;
     const totalPrice = values.currentPrice * values.amount;
-    const datetime = (new Date()).toString();
+    const datetime = new Date().toString();
     const formValues = {
       code,
       name,
@@ -33,7 +32,7 @@ export default class TradeCoinPage01 extends PureComponent {
       ...values,
       datetime,
     };
-    Api.post('/transactions', formValues).then(() => closeModal());
+    createTransaction(formValues, closeModal);
   }
 
   render() {

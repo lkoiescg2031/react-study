@@ -14,7 +14,7 @@ import Spacing from '../../../doit-ui/Spacing';
 export default class CoinDashlet extends PureComponent {
   static propTypes = {
     name: PropTypes.string,
-    priceLabel: PropTypes.string,
+    priceLabel: PropTypes.number,
   };
   render() {
     const { name, code, priceLabel } = this.props;

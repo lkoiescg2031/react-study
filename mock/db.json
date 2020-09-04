@@ -17,6 +17,60 @@
       "currentPrice": 20000,
       "amount": 10,
       "datetime": "2019/01/20 07:23:22"
+    },
+    {
+      "code": "ETH",
+      "name": "이더리움",
+      "totalPrice": 26568000,
+      "currentPrice": 216000,
+      "amount": "123",
+      "datetime": "Fri Sep 04 2020 10:47:07 GMT+0900 (대한민국 표준시)",
+      "id": 3
+    },
+    {
+      "code": "BTX",
+      "name": "비트코인",
+      "totalPrice": 4216000,
+      "currentPrice": 4216000,
+      "amount": "1",
+      "datetime": "Fri Sep 04 2020 11:52:48 GMT+0900 (대한민국 표준시)",
+      "id": 4
+    },
+    {
+      "code": "BTX",
+      "name": "비트코인",
+      "totalPrice": 4216000,
+      "currentPrice": 4216000,
+      "amount": "1",
+      "datetime": "Fri Sep 04 2020 14:45:41 GMT+0900 (대한민국 표준시)",
+      "id": 5
+    },
+    {
+      "code": "BTX",
+      "name": "비트코인",
+      "totalPrice": 421600000,
+      "currentPrice": 4216000,
+      "amount": "100",
+      "datetime": "Fri Sep 04 2020 14:45:54 GMT+0900 (대한민국 표준시)",
+      "id": 6
+    },
+    {
+      "code": "BTX",
+      "name": "비트코인",
+      "totalPrice": 4216000,
+      "currentPrice": 4216000,
+      "amount": "1",
+      "datetime": "Fri Sep 04 2020 14:46:27 GMT+0900 (대한민국 표준시)",
+      "id": 7
+    },
+    {
+      "code": "BTX",
+      "name": "비트코인",
+      "totalPrice": 4216000,
+      "currentPrice": 4216000,
+      "amount": "1",
+      "datetime": "Fri Sep 04 2020 14:47:58 GMT+0900 (대한민국 표준시)",
+      "id": 8
     }
   ]
 }

@@ -6,6 +6,7 @@ import MainPage from './components/main/MainPage';
 import configureStore from './store/configureStore';
 
 import ModalProvider from './ModalProvider';
+import NotificationContainer from './containers/NotificationContainer';
 
 export default class CoinApp extends PureComponent {
   store = configureStore();
@@ -16,6 +17,7 @@ export default class CoinApp extends PureComponent {
         <ModalProvider>
           <AppLayout>
             <MainPage />
+            <NotificationContainer />
           </AppLayout>
         </ModalProvider>
       </Provider>
