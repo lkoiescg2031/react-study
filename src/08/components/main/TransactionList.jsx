@@ -5,6 +5,7 @@ import Heading from '../../../doit-ui/Heading';
 import Card from '../../../doit-ui/Card';
 
 import TransactionSearchFilterContrainer from '../../containers/main/TransactionSearchFilterContainer';
+import TransactionPaginationContrainer from '../../containers/main/TransactionPaginationContainer';
 import TransactionTable from './TransactionTable';
 
 export default class TransactionList extends PureComponent {
@@ -35,6 +36,7 @@ export default class TransactionList extends PureComponent {
             isLoading={loading}
           />
         </Card>
+        <TransactionPaginationContrainer />
       </div>
     );
   }

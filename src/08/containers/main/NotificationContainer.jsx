@@ -8,4 +8,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps)(Notification);
+export default connect(mapStateToProps, mapDispatchToProps)(Notification);

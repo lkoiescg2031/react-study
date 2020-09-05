@@ -9,6 +9,7 @@ import InlineList from '../../../doit-ui/InlineList';
 import Form from '../../../doit-ui/Form';
 
 import { Consumer as Modal } from '../../../doit-ui/Modal/context';
+import { loadOptions } from '@babel/core';
 
 export default class TradeCoinPage01 extends PureComponent {
   static propTypes = {
@@ -36,7 +37,7 @@ export default class TradeCoinPage01 extends PureComponent {
   }
 
   render() {
-    const { name, code, price, type } = this.props;
+    const { name, code, price, type, loading } = this.props;
     const typeName = type === 'sell' ? '판매' : '구매';
     return (
       <Modal>
@@ -68,8 +69,12 @@ export default class TradeCoinPage01 extends PureComponent {
                     />
                   </Spacing>
                   <InlineList spacingBetween={1}>
-                    <Button primary>{typeName}</Button>
-                    <Button onPress={closeModal}>취소</Button>
+                    <Button primary disabled={loading}>
+                      {loading ? '거래 처리중' : typeName}
+                    </Button>
+                    <Button onPress={closeModal} disabled={loading}>
+                      취소
+                    </Button>
                   </InlineList>
                 </Spacing>
               )}

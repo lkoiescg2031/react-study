@@ -15,22 +15,25 @@ export default class TransactionSearchFilter extends PureComponent {
   static propTypes = {
     //setTransactionList: PropTypes.func,
     requestTransactionList: PropTypes.func,
+    setFilter: PropTypes.func,
   };
 
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleSubmit(params) {
     // const { setTransactionList } = this.props;
     // Api.get('/transactions', { params }).then(({ data }) =>
     //   setTransactionList(data),
     // );
-    const { requestTransactionList } = this.props;
+    const { requestTransactionList, setFilter } = this.props;
     const cleanedParams = Object.entries(params)
       .filter(([key, value]) => value !== '')
       .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
     requestTransactionList(cleanedParams);
+    setFilter(cleanedParams);
   }
 
   render() {
@@ -56,12 +59,14 @@ export default class TransactionSearchFilter extends PureComponent {
               <Input
                 name="currentPrice_gte"
                 label="최소 거래가"
+                type="number"
                 onChange={onChange}
                 value={values['currentPrice_gte']}
               />
               <Input
                 name="currentPrice_lte"
                 label="최대 거래가"
+                type="number"
                 onChange={onChange}
                 value={values['currentPrice_lte']}
               />
