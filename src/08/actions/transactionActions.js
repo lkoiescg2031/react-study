@@ -1,5 +1,4 @@
 import Api from '../Api';
-import { showMessage } from './notificationActions';
 
 export const LOADING_TRANSACTION_LIST =
   'transaction/LOADING_TRANSACTION_LIST';

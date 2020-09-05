@@ -1,13 +1,10 @@
 import { connect } from 'react-redux';
 import TrageCoinPage from '../../components/main/TradeCoinPage';
-import {
-  createTransaction,
-  CREATE_TRANSACTION,
-} from '../../actions/transactionPackActions';
+import { createTransaction } from '../../actions/transactionPackActions';
+import { transactionCreateLoadingStateSelector } from '../../selectors/transactionSelectors';
+
 const mapStateToProps = (state) => {
-  const { loadingState } = state.transactions;
-  const loading = loadingState[CREATE_TRANSACTION];
-  return { loading };
+  return { loading: transactionCreateLoadingStateSelector(state) };
 };
 
 const mapDispatchToProps = {

@@ -5,8 +5,8 @@ import {
 import { showMessage } from '../actions/notificationActions';
 
 export default (store) => (nextRunner) => (action) => {
-  const { type, payload } = action;
-  
+  const { type } = action;
+
   const result = nextRunner(action);
 
   if (type === TRADE_COMPLETE) {

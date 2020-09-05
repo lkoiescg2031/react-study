@@ -9,7 +9,6 @@ import InlineList from '../../../doit-ui/InlineList';
 import Form from '../../../doit-ui/Form';
 
 import { Consumer as Modal } from '../../../doit-ui/Modal/context';
-import { loadOptions } from '@babel/core';
 
 export default class TradeCoinPage01 extends PureComponent {
   static propTypes = {
@@ -56,6 +55,7 @@ export default class TradeCoinPage01 extends PureComponent {
                     <Input
                       name="currentPrice"
                       label="금액"
+                      type="number"
                       value={values['currentPrice']}
                       onChange={onChange}
                     />
@@ -64,6 +64,7 @@ export default class TradeCoinPage01 extends PureComponent {
                     <Input
                       name="amount"
                       label="수량"
+                      type="number"
                       value={values['amount']}
                       onChange={onChange}
                     />
