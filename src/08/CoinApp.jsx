@@ -1,12 +1,16 @@
 import React, { PureComponent } from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import AppLayout from './components/AppLayout';
-import MainPage from './components/main/MainPage';
 import configureStore from './store/configureStore';
 
+import AppLayout from './components/AppLayout';
+import NotFound from './components/NotFound';
+import MainPage from './components/main/AsyncMainPage';
+import Notification from './containers/NotificationContainer';
+import RouterStateContainer from './containers/RouterStateContainer';
+
 import ModalProvider from './ModalProvider';
-import NotificationContainer from './containers/NotificationContainer';
 
 export default class CoinApp extends PureComponent {
   store = configureStore();
@@ -14,12 +18,22 @@ export default class CoinApp extends PureComponent {
   render() {
     return (
       <Provider store={this.store}>
-        <ModalProvider>
-          <AppLayout>
-            <MainPage />
-            <NotificationContainer />
-          </AppLayout>
-        </ModalProvider>
+        <Router>
+          <RouterStateContainer />
+          <ModalProvider>
+            <AppLayout>
+              <Switch>
+                <Route path="/" exact render={() => <MainPage />} />
+                {/*<Route path="*" component={NotFound} />*/}
+                <Route
+                  path="*"
+                  render={({ match }) => <NotFound match={match} />}
+                />
+              </Switch>
+              <Notification />
+            </AppLayout>
+          </ModalProvider>
+        </Router>
       </Provider>
     );
   }

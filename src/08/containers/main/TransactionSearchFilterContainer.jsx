@@ -1,13 +1,11 @@
 import { connect } from 'react-redux';
 import TransactionSearchFilter from '../../components/main/TransactionSearchFilter';
-import { requestTransactionList } from '../../actions/transactionPackActions';
-import { setFilter } from '../../actions/searchFilterActions';
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = (state) => ({
+  initValues: state.searchFilter.params,
+});
 
 const mapDispatchToProps = {
-  requestTransactionList,
-  setFilter,
 };
 
 export default connect(

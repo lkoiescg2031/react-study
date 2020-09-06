@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-//import Api from '../../Api';
 
 import Heading from '../../../doit-ui/Heading';
 import Card from '../../../doit-ui/Card';
@@ -11,16 +10,7 @@ import TransactionTable from './TransactionTable';
 export default class TransactionList extends PureComponent {
   static defaultProps = {
     transactions: [],
-    //setTransactionList: () => {},
-    requestTransactionList: () => {},
   };
-
-  componentDidMount() {
-    // Api.get('/transactions').then(({ data }) =>
-    //   this.props.setTransactionList(data),
-    // );
-    this.props.requestTransactionList();
-  }
 
   render() {
     const { transactions, loading } = this.props;
